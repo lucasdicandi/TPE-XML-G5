@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Eliminando Archivos..."
 # Eliminar archivos específicos
 rm -f drivers_list.xml
 rm -f drivers_standings.xml
