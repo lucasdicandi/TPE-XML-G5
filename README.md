@@ -1,9 +1,8 @@
-# Alumnos:
+# Proyecto NASCAR Data
+
+## Alumnos:
 
 nombre - leggajo
-
-
-# Proyecto NASCAR Data
 
 ## Descripción
 Este proyecto tiene como objetivo extraer y generar reportes de datos de NASCAR para la temporada de un año específico. 
