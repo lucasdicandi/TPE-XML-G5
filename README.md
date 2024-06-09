@@ -24,6 +24,6 @@ El proyecto contiene los siguientes componentes clave:
 
 ## Uso
 ### Ejecución del Pipeline de Datos
-Para ejecutar el pipeline completo de extracción y procesamiento de datos, utiliza el script `tpe.sh`:
+Para ejecutar el pipeline completo de extracción y procesamiento de datos, utilice el script `tpe.sh`:
 ```bash
 ./tpe.sh <año> <serie>
