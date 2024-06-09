@@ -29,3 +29,9 @@ El proyecto contiene los siguientes componentes clave:
 - Para ejecutar el pipeline completo de extracción y procesamiento de datos, utilice el script `tpe.sh`:
 ```bash
 ./tpe.sh <año> <serie>
+```
+### Limpieza de archivos
+- Para limpiar los archivos generados se utiliza `clean.sh`:
+```bash
+./clean.sh
+``` 
