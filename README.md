@@ -2,10 +2,12 @@
 
 ## Alumnos:
 
-Franco Ferrari - 63094
-Keoni Lucas Dubovitsky - 62815
-Lucas Di Candia - 63212
-Mateo Pirola - 62810
+| Nombre                    | Legajo  |
+|---------------------------|----------|
+| Franco Ferrari            | 63094    |
+| Keoni Lucas Dubovitsky    | 62815    |
+| Lucas Di Candia           | 63212    |
+| Mateo Pirola              | 62810    |
 
 ## Descripción
 Este proyecto tiene como objetivo extraer y generar reportes de datos de NASCAR para la temporada de un año específico. 
@@ -24,4 +26,4 @@ El proyecto contiene los siguientes componentes clave:
 ### Ejecución del Pipeline de Datos
 Para ejecutar el pipeline completo de extracción y procesamiento de datos, utiliza el script `tpe.sh`:
 ```bash
-./tpe.sh <ano> <serie>
+./tpe.sh <año> <serie>
