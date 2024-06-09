@@ -2,7 +2,10 @@
 
 ## Alumnos:
 
-nombre - leggajo
+Franco Ferrari - 63094
+Keoni Lucas Dubovitsky - 62815
+Lucas Di Candia - 63212
+Mateo Pirola - 62810
 
 ## Descripción
 Este proyecto tiene como objetivo extraer y generar reportes de datos de NASCAR para la temporada de un año específico. 
