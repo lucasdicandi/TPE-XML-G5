@@ -24,7 +24,7 @@ El proyecto contiene los siguientes componentes clave:
 - `fop.zip`: parser de apache 
 
 ## Uso
-- descomprimir el fop.zip
+- descomprimir el fop.zip y tener instalado el Saxon.
 ### Ejecución del Pipeline de Datos
 - Para ejecutar el pipeline completo de extracción y procesamiento de datos, utilice el script `tpe.sh`:
 ```bash
