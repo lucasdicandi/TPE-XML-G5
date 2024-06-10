@@ -26,25 +26,37 @@ fi
 
 # Descargar los archivos XML
 echo "Descargando drivers_standings.xml..."
-curl "https://api.sportradar.com/nascar-ot3/$SERIE/$ANO/standings/drivers.xml?api_key=$API_KEY" -o drivers_standings.xml
+curl -s "https://api.sportradar.com/nascar-ot3/$SERIE/$ANO/standings/drivers.xml?api_key=$API_KEY" -o drivers_standings.xml
 sleep 1
 
 echo "Descargando drivers_list.xml..."
-curl "https://api.sportradar.com/nascar-ot3/$SERIE/$ANO/drivers/list.xml?api_key=$API_KEY" -o drivers_list.xml
+curl -s "https://api.sportradar.com/nascar-ot3/$SERIE/$ANO/drivers/list.xml?api_key=$API_KEY" -o drivers_list.xml
 sleep 1
+
+# Verificar que los archivos descargados sean XML válidos
 
 # Ejecutar las consultas y transformaciones XQuery y XSLT
 
 echo "Generando nascar_data.xml..."
 java net.sf.saxon.Query extract_nascar_data.xq -o:nascar_data.xml
-sleep 1
+if [ $? -ne 0 ]; then
+    echo "Error al generar nascar_data.xml"
+    exit 1
+fi
 
 echo "Generando nascar_page.fo..."
 java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_fo.xsl -o:nascar_page.fo
-sleep 1
+if [ $? -ne 0 ]; then
+    echo "Error al generar nascar_page.fo"
+    exit 1
+fi
 
 echo "Generando nascar_report.pdf..."
 # Generar el reporte PDF usando Apache FOP
 ./fop/fop.cmd -fo nascar_page.fo -pdf nascar_report.pdf
+if [ $? -ne 0 ]; then
+    echo "Error al generar nascar_report.pdf"
+    exit 1
+fi
 
 echo "Reporte NASCAR generado exitosamente: nascar_report.pdf"
