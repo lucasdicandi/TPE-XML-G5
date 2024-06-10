@@ -53,7 +53,7 @@ fi
 
 echo "Generando nascar_report.pdf..."
 # Generar el reporte PDF usando Apache FOP
-./fop/fop.cmd -fo nascar_page.fo -pdf nascar_report.pdf
+./fop/fop.cmd -fo nascar_page.fo -pdf nascar_report.pdf > fop_output.log 2>&1 &
 if [ $? -ne 0 ]; then
     echo "Error al generar nascar_report.pdf"
     exit 1
