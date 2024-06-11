@@ -1,6 +1,6 @@
 # Proyecto NASCAR Data
 
-## Alumnos:
+## Alumnos
 
 | Nombre                    | Legajo  |
 |---------------------------|----------|
