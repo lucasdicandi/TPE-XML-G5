@@ -1,15 +1,12 @@
 xquery version "3.0";
 
-declare namespace ns_list = "http://feed.elasticstats.com/schema/nascar/series-v2.0.xsd";
-declare namespace ns_standings = "http://feed.elasticstats.com/schema/nascar/standings-v2.0.xsd";
-
 <nascar_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nascar_data.xsd">
-    <year>{data(doc("drivers_list.xml")/ns_list:series/ns_list:season/@year)}</year>
-    <serie_type>{data(doc("drivers_list.xml")/ns_list:series/@name)}</serie_type>
+    <year>{data(doc("drivers_list.xml")/*:series/*:season/@year)}</year>
+    <serie_type>{data(doc("drivers_list.xml")/*:series/@name)}</serie_type>
     <drivers>
     {
-        for $driver in doc("drivers_list.xml")/ns_list:series/ns_list:season/ns_list:driver
-        let $driver_standing := doc("drivers_standings.xml")/ns_standings:series/ns_standings:season/ns_standings:driver[@id = $driver/@id]
+        for $driver in doc("drivers_list.xml")/*:series/*:season/*:driver
+        let $driver_standing := doc("drivers_standings.xml")/*:series/*:season/*:driver[@id = $driver/@id]
         where exists($driver_standing/@rank)
         order by $driver/@full_name
         return
@@ -21,8 +18,8 @@ declare namespace ns_standings = "http://feed.elasticstats.com/schema/nascar/sta
             <rank>{data($driver_standing/@rank)}</rank>
             <car>
             {
-                if (exists($driver/ns_list:car))
-                then data($driver/ns_list:car/ns_list:manufacturer/@name)
+                if (exists($driver/*:car))
+                then data($driver/*:car/*:manufacturer/@name)
                 else "-"
             }
             </car>
@@ -37,4 +34,3 @@ declare namespace ns_standings = "http://feed.elasticstats.com/schema/nascar/sta
     }
     </drivers>
 </nascar_data>
-
